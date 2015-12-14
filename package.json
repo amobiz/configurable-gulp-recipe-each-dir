@@ -31,8 +31,13 @@
   },
   "homepage": "https://github.com/amobiz/configurable-gulp-recipe-each-dir#readme",
   "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.1.0",
+    "lodash": "^3.10.1",
     "mocha": "^2.3.4",
-    "mocha-cases": "^0.1.4"
+    "mocha-cases": "^0.1.4",
+    "sinon": "^1.17.2",
+    "through2": "^2.0.0"
   },
   "dependencies": {
     "configurable-gulp-helper": "git+https://github.com/amobiz/configurable-gulp-helper.git",
