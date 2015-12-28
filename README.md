@@ -1,2 +1,2 @@
-# configurable-gulp-recipe-each-dir
+# gulp-ccr-each-dir
 Configurable gulp recipe plugin that iterates each sub-folders and pass to sub tasks.

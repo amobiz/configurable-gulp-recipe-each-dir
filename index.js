@@ -16,9 +16,9 @@ function eachdir(done) {
 	// lazy loading required modules.
 	var fs = require('fs'),
 		path = require('path'),
-		each = require('configurable-gulp-recipe-each');
+		each = require('gulp-ccr-each');
 
-	var verify = require('configurable-gulp-helper').verifyConfiguration,
+	var verify = require('gulp-ccr-helper').verifyConfiguration,
 		PluginError = require('gulp-util').PluginError;
 
 	var context = this,
