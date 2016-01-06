@@ -1,24 +1,27 @@
 {
   "name": "gulp-ccr-each-dir",
   "version": "0.1.0",
-  "description": "Configurable gulp recipe plugin that iterates each sub-folders and pass to sub tasks.",
+  "description": "Cascading Configurable Gulp Recipe for gulp-chef that iterates each sub-folders and pass to sub tasks.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gulp-ccr/gulp-ccr-each-dir.git"
+    "url": "git+https://github.com/gulp-cookery/gulp-ccr-each-dir.git"
   },
   "keywords": [
     "gulp",
     "gulp 4.0",
+	"gulp-cookery",
+	"gulp-chef",
     "gulp-ccr",
     "configurable-gulp-recipe",
     "configurable-gulp-recipes",
     "stream",
     "directory",
     "iterator",
+	"cookery",
     "plugin",
     "plugins",
     "recipe",
@@ -30,9 +33,12 @@
   "author": "Amobiz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gulp-ccr/gulp-ccr-each-dir/issues"
+    "url": "https://github.com/gulp-cookery/gulp-ccr-each-dir/issues"
   },
-  "homepage": "https://github.com/gulp-ccr/gulp-ccr-each-dir#readme",
+  "homepage": "https://github.com/gulp-cookery/gulp-ccr-each-dir#readme",
+  "peerDependencies": {
+    "gulp-chef": "git+https://github.com/gulp-cookery/gulp-chef.git"
+  },
   "devDependencies": {
     "chai": "^3.4.1",
     "chai-as-promised": "^5.1.0",
@@ -43,8 +49,8 @@
     "through2": "^2.0.0"
   },
   "dependencies": {
-    "gulp-ccr-helper": "git+https://github.com/gulp-ccr/gulp-ccr-helper.git",
-    "gulp-ccr-each": "git+https://github.com/gulp-ccr/gulp-ccr-each.git",
+    "gulp-ccr-helper": "git+https://github.com/gulp-cookery/gulp-ccr-helper.git",
+    "gulp-ccr-each": "git+https://github.com/gulp-cookery/gulp-ccr-each.git",
     "gulp-util": "^3.0.7"
   }
 }
