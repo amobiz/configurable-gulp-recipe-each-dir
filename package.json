@@ -13,15 +13,15 @@
   "keywords": [
     "gulp",
     "gulp 4.0",
-	"gulp-cookery",
-	"gulp-chef",
+    "gulp-cookery",
+    "gulp-chef",
     "gulp-ccr",
     "configurable-gulp-recipe",
     "configurable-gulp-recipes",
     "stream",
     "directory",
     "iterator",
-	"cookery",
+    "cookery",
     "plugin",
     "plugins",
     "recipe",
@@ -49,8 +49,9 @@
     "through2": "^2.0.0"
   },
   "dependencies": {
-    "gulp-ccr-helper": "git+https://github.com/gulp-cookery/gulp-ccr-helper.git",
+    "gulp-ccr-config-helper": "git+https://github.com/gulp-cookery/gulp-ccr-config-helper.git",
     "gulp-ccr-each": "git+https://github.com/gulp-cookery/gulp-ccr-each.git",
-    "gulp-util": "^3.0.7"
+    "gulp-ccr-stream-helper": "git+https://github.com/gulp-cookery/gulp-ccr-stream-helper.git",
+    "gulplog": "^1.0.0"
   }
 }

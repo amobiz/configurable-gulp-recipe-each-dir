@@ -1,5 +1,7 @@
 'use strict';
 
+var helper = require('gulp-ccr-stream-helper')('each-dir');
+
 /**
  * Recipe:
  *
@@ -10,30 +12,28 @@
  * 	https://github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md
  *
  */
-function eachdir(done) {
+function eachdir() {
 	// lazy loading required modules.
 	var fs = require('fs');
 	var Path = require('path');
+	var log = require('gulplog');
 	var each = require('gulp-ccr-each');
-
-	var verify = require('gulp-ccr-helper').verifyConfiguration;
-	var PluginError = require('gulp-util').PluginError;
+	var verify = require('gulp-ccr-config-helper');
 
 	var gulp = gulp;
 	var config = this.config;
+	var tasks = this.tasks;
 
 	var context, cwd, folders, values, dir;
 
-	if (this.upstream) {
-		throw new PluginError('each-dir', 'each-dir stream-processor do not accept up-stream');
-	}
+	helper.prerequisite(this, false, 1);
 	verify(eachdir.schema, config);
 
 	dir = config.dir;
 	cwd = process.cwd();
 	folders = getFolders(dir);
 	if (folders.length === 0) {
-		throw new PluginError('eachdir', 'no sub folders found in ' + dir);
+		log.warn('each-dir', 'no sub folders found in ' + dir);
 	}
 
 	values = folders.map(function (folder) {
@@ -47,9 +47,10 @@ function eachdir(done) {
 		gulp: gulp,
 		config: {
 			values: values
-		}
+		},
+		tasks: tasks
 	};
-	return each.call(context, done);
+	return each.call(context);
 
 	function getFolders(path) {
 		try {
