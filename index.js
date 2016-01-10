@@ -1,7 +1,5 @@
 'use strict';
 
-/*jshint node: true */
-/*global process*/
 /**
  * Recipe:
  *
@@ -14,20 +12,20 @@
  */
 function eachdir(done) {
 	// lazy loading required modules.
-	var fs = require('fs'),
-		path = require('path'),
-		each = require('gulp-ccr-each');
+	var fs = require('fs');
+	var Path = require('path');
+	var each = require('gulp-ccr-each');
 
-	var verify = require('gulp-ccr-helper').verifyConfiguration,
-		PluginError = require('gulp-util').PluginError;
+	var verify = require('gulp-ccr-helper').verifyConfiguration;
+	var PluginError = require('gulp-util').PluginError;
 
-	var context = this,
-		config = context.config;
+	var gulp = gulp;
+	var config = this.config;
 
-	var cwd, folders, inject, values, dir;
+	var context, cwd, folders, values, dir;
 
-	if (context.upstream) {
-		throw new PluginError('eachdir', 'eachdir stream-processor do not accept up-stream');
+	if (this.upstream) {
+		throw new PluginError('each-dir', 'each-dir stream-processor do not accept up-stream');
 	}
 	verify(eachdir.schema, config);
 
@@ -41,21 +39,22 @@ function eachdir(done) {
 	values = folders.map(function (folder) {
 		return {
 			dir: folder,
-			path: path.join(cwd, dir, folder)
+			path: Path.join(cwd, dir, folder)
 		};
 	});
 
-	inject = {
-		values: values
+	context = {
+		gulp: gulp,
+		config: {
+			values: values
+		}
 	};
-
-	context.config = inject;
 	return each.call(context, done);
 
-	function getFolders(dir) {
+	function getFolders(path) {
 		try {
-			return fs.readdirSync(dir).filter(function (file) {
-				return fs.statSync(path.join(dir, file)).isDirectory();
+			return fs.readdirSync(path).filter(function (file) {
+				return fs.statSync(Path.join(path, file)).isDirectory();
 			});
 		} catch (ex) {
 			return [];
@@ -66,14 +65,15 @@ function eachdir(done) {
 eachdir.expose = ['dir', 'path'];
 
 eachdir.schema = {
-	"title": "eachdir",
-	"description": "Performs actions on each sub folder of the specified folder",
-	"properties": {
-		"dir": {
-			"description": ""
+	title: 'eachdir',
+	description: 'Iterates each sub-folders and pass as `dir` property to child tasks.',
+	properties: {
+		dir: {
+			description: '',
+			type: 'path'
 		}
 	},
-	"required": ["dir"]
+	required: ['dir']
 };
 
 eachdir.type = 'stream';
