@@ -2,16 +2,20 @@
 
 var helper = require('gulp-ccr-stream-helper')('each-dir');
 
-/**
- * Recipe:
- *
- * Ingredients:
- *
- * References:
- * 	Generating a file per folder
- * 	https://github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md
- *
- */
+var schema = {
+	title: 'eachdir',
+	description: "Iterates each sub directories and pass as 'config.dir' context to sub tasks.",
+	properties: {
+		dir: {
+			description: 'The directory path to iterate its sub directories.',
+			type: 'path'
+		}
+	},
+	required: ['dir']
+};
+
+var expose = ['dir', 'path'];
+
 function eachdir() {
 	// lazy loading required modules.
 	var fs = require('fs');
@@ -33,7 +37,7 @@ function eachdir() {
 	cwd = process.cwd();
 	folders = getFolders(dir);
 	if (folders.length === 0) {
-		log.warn('each-dir', 'no sub folders found in ' + dir);
+		log.warn('each-dir', 'no sub directories found in ' + dir);
 	}
 
 	values = folders.map(function (folder) {
@@ -63,20 +67,7 @@ function eachdir() {
 	}
 }
 
-eachdir.expose = ['dir', 'path'];
-
-eachdir.schema = {
-	title: 'eachdir',
-	description: 'Iterates each sub-folders and pass as `dir` property to child tasks.',
-	properties: {
-		dir: {
-			description: '',
-			type: 'path'
-		}
-	},
-	required: ['dir']
-};
-
-eachdir.type = 'stream';
-
 module.exports = eachdir;
+module.exports.expose = expose;
+module.exports.schema = schema;
+module.exports.type = 'stream';

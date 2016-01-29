@@ -1,7 +1,7 @@
 {
   "name": "gulp-ccr-each-dir",
   "version": "0.1.0",
-  "description": "Iterates each sub-folders and pass to child tasks. A cascading configurable Gulp recipe for gulp-chef.",
+  "description": "Iterates each sub directories and pass to sub tasks. A cascading configurable gulp recipe for gulp-chef.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/gulp-cookery/gulp-ccr-each-dir#readme",
   "peerDependencies": {
-    "gulp-chef": "git+https://github.com/gulp-cookery/gulp-chef.git"
+    "gulp-chef": "^0.1.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",
@@ -49,9 +49,9 @@
     "through2": "^2.0.0"
   },
   "dependencies": {
-    "gulp-ccr-config-helper": "git+https://github.com/gulp-cookery/gulp-ccr-config-helper.git",
-    "gulp-ccr-each": "git+https://github.com/gulp-cookery/gulp-ccr-each.git",
-    "gulp-ccr-stream-helper": "git+https://github.com/gulp-cookery/gulp-ccr-stream-helper.git",
+    "gulp-ccr-config-helper": "^0.1.0",
+    "gulp-ccr-each": "^0.1.0",
+    "gulp-ccr-stream-helper": "^0.1.0",
     "gulplog": "^1.0.0"
   }
 }
