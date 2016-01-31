@@ -8,7 +8,13 @@ var schema = {
 	properties: {
 		dir: {
 			description: 'The directory path to iterate its sub directories.',
-			type: 'path'
+			type: 'path',
+			properties: {
+				join: {
+					type: ['string', 'boolean'],
+					default: 'src'
+				}
+			}
 		}
 	},
 	required: ['dir']
