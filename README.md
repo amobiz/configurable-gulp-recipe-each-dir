@@ -62,3 +62,9 @@ gulp.registry(meals);
 ## References
 
 * [Generating a file per folder](https://github.com/gulpjs/gulp/blob/master/docs/recipes/running-task-steps-per-folder.md)
+
+## License
+[MIT](https://opensource.org/licenses/MIT)
+
+## Author
+[Amobiz](https://github.com/amobiz)
