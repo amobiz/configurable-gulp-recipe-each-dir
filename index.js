@@ -39,7 +39,7 @@ function eachdir() {
 	helper.prerequisite(this, false, 1);
 	verify(eachdir.schema, config);
 
-	dir = config.dir;
+	dir = config.dir.path;
 	cwd = process.cwd();
 	folders = getFolders(dir);
 	if (folders.length === 0) {
