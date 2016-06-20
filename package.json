@@ -1,6 +1,6 @@
 {
   "name": "gulp-ccr-each-dir",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Iterates each sub directories and pass to sub tasks. A cascading configurable gulp recipe for gulp-chef.",
   "main": "index.js",
   "scripts": {
@@ -49,6 +49,7 @@
     "through2": "^2.0.0"
   },
   "dependencies": {
+    "globby": "^5.0.0",
     "gulp-ccr-config-helper": "^0.1.0",
     "gulp-ccr-each": "^0.1.0",
     "gulp-ccr-stream-helper": "^0.1.0",

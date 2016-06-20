@@ -24,15 +24,15 @@ Stream Array (from [gulp-cheatsheet](https://github.com/osscafe/gulp-cheatsheet)
 
 ## API
 
-### config.dir
+### config.src
 
 The directory path to iterate its sub directories. Inject "`config.dir`" and "`config.path`" context to sub tasks.
 
-#### config.dir
+#### [expose] config.dir
 
 The name of the sub directory.
 
-#### config.path
+#### [expose] config.path
 
 The canonical path of the sub directory.
 
@@ -46,10 +46,10 @@ var meals = chef({
     src: 'src/',
     dest: 'dist/',
     'each-dir': {
-        dir: 'modules/',
+        src: 'modules/',
         browserify: {
             bundle: {
-                entry: 'index.js',
+                entry: '{{dir}}/index.js',
                 file: '{{dir}}.js'
             }
          }
